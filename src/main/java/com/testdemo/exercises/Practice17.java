@@ -39,12 +39,18 @@ public class Practice17 {
         Scanner sc = new Scanner(System.in);
         while (sc.hasNext()){
             String str = sc.next();
-            if (str.contains("A")){left(str);}
-            if (str.contains("D")){right(str);}
-            if (str.contains("W")){up(str);}
-            if (str.contains("S")){down(str);}
-
-
+            try {
+                if (str.length()<=3 && "ADWS".contains(str.substring(0,1)) && (Integer.parseInt(str.substring(1,str.length()))<100 && Integer.parseInt(str.substring(1,str.length()))>=0)){
+                    if (str.contains("A")){left(str);}
+                    if (str.contains("D")){right(str);}
+                    if (str.contains("W")){up(str);}
+                    if (str.contains("S")){down(str);}
+                }else {
+                    System.out.println("格式有误，请重新输入，首字母必须大写ADWS开头，后加两位数字");
+                }
+            }catch (Exception e){
+                System.out.println("格式有误，请重新输入，首字母必须大写ADWS开头，后加两位数字：例A30、D20、W10、S5");
+            }
         }
     }
 
